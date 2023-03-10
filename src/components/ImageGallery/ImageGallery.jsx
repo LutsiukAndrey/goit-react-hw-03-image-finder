@@ -26,8 +26,6 @@ export class ImageGallery extends React.Component {
     }));
   };
   handleImgClick = src => {
-    console.log('sdsgsdfgfsdfg');
-
     this.setState({ modalImg: src });
     this.toggleModal();
   };
@@ -53,7 +51,7 @@ export class ImageGallery extends React.Component {
         status: 'resolved',
         total: resolt.total,
       });
-      console.log(this.state.status);
+
       if (prevState.page !== this.state.page) {
         this.setState({
           photoArr: [...this.state.photoArr, ...resolt.hits],
@@ -66,7 +64,6 @@ export class ImageGallery extends React.Component {
     }
   }
   pagination = () => {
-    console.log('aasdfadsf');
     this.setState(prevState => {
       return {
         page: prevState.page + 1,
@@ -114,7 +111,6 @@ export class ImageGallery extends React.Component {
       );
     }
     if (this.state.status === 'reject') {
-      console.log('reject');
     }
   }
 }
