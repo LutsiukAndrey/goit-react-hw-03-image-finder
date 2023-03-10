@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { Audio, TailSpin } from 'react-loader-spinner';
+import { TailSpin } from 'react-loader-spinner';
 
 export class Loader extends Component {
   render() {

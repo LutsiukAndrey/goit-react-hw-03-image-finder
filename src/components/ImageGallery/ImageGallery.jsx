@@ -2,7 +2,9 @@ import { fetchPhotos } from 'Api/api';
 import { Button } from 'components/Button/Button';
 import { ImageGalleryItem } from 'components/ImageGalleryItem/ImageGalleryItem';
 import { Loader } from 'components/Loader/Loader';
+import { Modal } from 'components/Modal/Modal';
 import { nanoid } from 'nanoid';
+
 import React from 'react';
 import s from './ImageGallery.module.css';
 
@@ -12,11 +14,22 @@ export class ImageGallery extends React.Component {
     modalOpen: false,
     status: 'idle',
     query: '',
-    perPage: 12, // change to 12
+    perPage: 12,
     page: 1,
     total: 0,
+    modalImg: null,
   };
+  toggleModal = () => {
+    this.setState(prevState => ({
+      modalOpen: !prevState.modalOpen,
+    }));
+  };
+  handleImgClick = src => {
+    console.log('sdsgsdfgfsdfg');
 
+    this.setState({ modalImg: src });
+    this.toggleModal();
+  };
   async componentDidUpdate(prevProps, prevState) {
     if (prevProps.photoQuery !== this.props.photoQuery) {
       this.setState({ status: 'pending' });
@@ -75,8 +88,10 @@ export class ImageGallery extends React.Component {
                   id={image.id}
                   imageLink={image.webformatURL}
                   imagAlt={image.tags}
-                  largeImageURL={image.largeImageURL}
-                  modalFn={this.props.modalFn}
+                  // largeImageURL={image.largeImageURL}
+                  onClick={() => {
+                    this.handleImgClick(image.largeImageURL);
+                  }}
                 />
               );
             })}
@@ -86,6 +101,12 @@ export class ImageGallery extends React.Component {
             <Button pagination={this.pagination} />
           ) : (
             ''
+          )}
+          {this.state.modalOpen && (
+            <Modal
+              modaiImg={this.state.modalImg}
+              toggleModal={this.toggleModal}
+            />
           )}
         </>
       );

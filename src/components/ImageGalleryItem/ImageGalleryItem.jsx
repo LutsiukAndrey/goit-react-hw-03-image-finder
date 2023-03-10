@@ -7,9 +7,10 @@ export const ImageGalleryItem = ({
   largeImageURL,
   modalFn,
   id,
+  onClick,
 }) => {
   return (
-    <li className={s.ImageGalleryItem}>
+    <li className={s.ImageGalleryItem} onClick={onClick}>
       <img
         className={s.ImageGalleryItemImage}
         src={imageLink}
