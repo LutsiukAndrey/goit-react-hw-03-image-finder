@@ -1,6 +1,19 @@
 import React from 'react';
 import s from './Modal.module.css';
 export class Modal extends React.Component {
+  handleEscKey = e => {
+    if (e.code !== 'Escape') {
+      return;
+    }
+    this.props.toggleModal();
+  };
+  componentDidMount() {
+    window.addEventListener('keydown', this.handleEscKey);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('keydown', this.handleEscKey);
+  }
+
   render() {
     return (
       <div

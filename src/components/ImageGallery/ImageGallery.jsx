@@ -30,6 +30,7 @@ export class ImageGallery extends React.Component {
     this.setState({ modalImg: src });
     this.toggleModal();
   };
+
   async componentDidUpdate(prevProps, prevState) {
     if (prevProps.photoQuery !== this.props.photoQuery) {
       this.setState({ status: 'pending' });
