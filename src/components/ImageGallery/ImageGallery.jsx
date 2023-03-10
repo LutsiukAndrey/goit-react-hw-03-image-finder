@@ -51,6 +51,7 @@ export class ImageGallery extends React.Component {
     }
   }
   pagination = () => {
+    console.log('aasdfadsf');
     this.setState(prevState => {
       return {
         page: prevState.page + 1,
