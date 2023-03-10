@@ -1,12 +1,13 @@
+import React from 'react';
+import s from './ImageGallery.module.css';
+import PropTypes from 'prop-types';
+import { nanoid } from 'nanoid';
+
 import { fetchPhotos } from 'Api/api';
 import { Button } from 'components/Button/Button';
 import { ImageGalleryItem } from 'components/ImageGalleryItem/ImageGalleryItem';
 import { Loader } from 'components/Loader/Loader';
 import { Modal } from 'components/Modal/Modal';
-import { nanoid } from 'nanoid';
-
-import React from 'react';
-import s from './ImageGallery.module.css';
 
 export class ImageGallery extends React.Component {
   state = {
@@ -117,3 +118,7 @@ export class ImageGallery extends React.Component {
     }
   }
 }
+
+ImageGallery.propTypes = {
+  photoQuery: PropTypes.string,
+};

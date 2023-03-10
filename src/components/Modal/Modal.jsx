@@ -1,5 +1,7 @@
 import React from 'react';
 import s from './Modal.module.css';
+import PropTypes from 'prop-types';
+
 export class Modal extends React.Component {
   handleEscKey = e => {
     if (e.code !== 'Escape') {
@@ -29,3 +31,8 @@ export class Modal extends React.Component {
     );
   }
 }
+
+Modal.propTypes = {
+  modaiImg: PropTypes.string,
+  toggleModal: PropTypes.func,
+};

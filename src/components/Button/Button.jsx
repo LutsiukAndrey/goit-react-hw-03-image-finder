@@ -1,5 +1,7 @@
 import { Component } from 'react';
 import s from './Button.module.css';
+import PropTypes from 'prop-types';
+
 export class Button extends Component {
   render() {
     return (
@@ -13,3 +15,7 @@ export class Button extends Component {
     );
   }
 }
+
+Button.propTypes = {
+  pagination: PropTypes.func,
+};

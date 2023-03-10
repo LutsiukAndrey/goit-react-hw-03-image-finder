@@ -1,5 +1,7 @@
 import React from 'react';
 import s from './Searchbar.module.css';
+import PropTypes from 'prop-types';
+
 export class Searchbar extends React.Component {
   state = {
     photo: '',
@@ -37,3 +39,7 @@ export class Searchbar extends React.Component {
     );
   }
 }
+
+Searchbar.propTypes = {
+  onSubmit: PropTypes.func,
+};
