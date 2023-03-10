@@ -20,7 +20,7 @@ export class ImageGallery extends React.Component {
     total: 0,
     modalImg: null,
   };
-  toggleModal = () => {
+  toggleModal = e => {
     this.setState(prevState => ({
       modalOpen: !prevState.modalOpen,
     }));

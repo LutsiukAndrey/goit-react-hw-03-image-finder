@@ -20,8 +20,11 @@ export class Modal extends React.Component {
     return (
       <div
         className={s.backdrop}
-        onClick={() => {
-          this.props.toggleModal();
+        onClick={e => {
+          if (e.target.nodeName !== 'DIV') {
+            return;
+          }
+          this.props.toggleModal(e);
         }}
       >
         <div className={s.Modal}>
